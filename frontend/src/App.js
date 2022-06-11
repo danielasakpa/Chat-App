@@ -2,6 +2,8 @@ import React from 'react';
 import Header from "./components/Header"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
+import Home from "./pages/Home"
+import Chat from "./pages/Chat"
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,10 +14,17 @@ function App() {
   return (
     <div>
      <Router>
-         <Header />
        <Routes>
-           <Route path='/register' element={<Register />} />
-           <Route path='/login' element={<Login />} />
+           <Route path='/register' element={<>
+                                            <Header />
+                                            <Register />
+                                            </>} />
+           <Route path='/login' element={<>
+                                            <Header />
+                                            <Login />
+                                            </>} />
+           <Route path='/' element={<Home />} />
+           <Route path='/chat' element={<Chat />} />
        </Routes>
      </Router>
     </div>

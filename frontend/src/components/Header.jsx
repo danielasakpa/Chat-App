@@ -1,6 +1,7 @@
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import { FaSignInAlt, FaSignOutAlt, FaUserAlt } from "react-icons/fa";
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import {
   Link
@@ -8,7 +9,7 @@ import {
 
 const Header = () => {
     return (
-     <header>
+     <header className="main-header">
       <Container component="main" id="nav-container" maxWidth="md" >
         <div className="nav-logo">
            <Avatar sx={{ m: 2, bgcolor: 'secondary.main' }}>
@@ -23,7 +24,7 @@ const Header = () => {
                     id="nav-Button"
                     type="submit"
                   >
-                   Sign up
+                   <FaUserAlt />  Sign up
                  </Button>
                 </Link>
             </li>
@@ -33,7 +34,7 @@ const Header = () => {
                     id="nav-Button"
                     type="submit"
                   >
-                   Login
+                  <FaSignInAlt />  Login
                  </Button>
                </Link>
             </li>

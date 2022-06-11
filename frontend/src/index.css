@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600&family=Oswald:wght@500&display=swap');
+
 body {
  padding: 0;
  margin: 0;
  box-sizing: border-box;
+ font-family: 'Oswald', sans-serif;
+ background-color: #F5F5F5;
  display: flex;
  justify-content: center;
 }
@@ -13,9 +17,9 @@ body {
  justify-content: center;
 }
 
-header {
+.main-header {
     background-color: #FFFFFF;
-    border-bottom: 1px black solid;
+    border-bottom: 1px solid #e6e6e6;
     margin-bottom: 80px;
 }
 
@@ -55,4 +59,100 @@ header {
 
 #form-Button:hover {
   background-color: none;
+}
+
+#home-container, #chat-container {
+    display: grid;
+    grid-template-areas:   
+        "sidebar header header"
+        "sidebar content content"
+        "sidebar footer footer";
+    grid-template-rows:    1fr 10fr 1fr;
+    grid-template-columns: 2fr 8fr;
+    width: 800px;
+    height: 500px;
+    margin-top: 70px;
+}
+
+
+.home-header, .chat-header {
+    grid-area: header;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+
+.home-sidebar, .chat-sidebar {
+    grid-area: sidebar;
+    background-color: #E5E5E5;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.home-content {
+   background-color: #FBFBFD;
+   grid-area: content;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.home-footer, .chat-footer {
+    grid-area: footer;
+    background-color: #FFFFFF;
+}
+
+#username {
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 12px;
+    color:  #342E37;
+}
+
+#room-Button {
+    color: #fff;
+    font-weight: bold;
+    background-color:rgb(33, 151, 139);
+    padding:10px 15px;
+}
+
+#home-nav-Button, #logout-Button {
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: bold;
+    background-color:rgb(33, 151, 139);
+    padding: 0.8em 1.8em;
+    margin: 9px;
+}
+
+#logout-Button {
+    position: absolute;
+    bottom: 7px;
+}
+
+.chat-content {
+    display: flex;
+    flex-direction: column;
+    grid-area: content;
+    background-color: #FBFBFD;
+    overflow-y: auto;
+    padding: 10px 30px;
+}
+
+.othermessage {
+    padding: 1em;
+    font-size: 1rem;
+    background-color: #E5E5E5;
+    max-width: 250px;
+    align-self: flex-start;
+    border-radius: 0 6px 6px 0;
+}
+
+.usermessage {
+    padding: 1em;
+    font-size: 1rem;
+    background-color:rgb(33, 151, 139);
+    max-width: 250px;
+    align-self: flex-end;
+    border-radius: 6px 0 0 6px;
 }
