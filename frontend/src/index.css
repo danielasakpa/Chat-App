@@ -101,6 +101,7 @@ body {
 .home-footer, .chat-footer {
     grid-area: footer;
     background-color: #FFFFFF;
+    border-top: 1px solid #e6e6e6;
 }
 
 #username {

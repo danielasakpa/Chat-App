@@ -1,3 +1,7 @@
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../features/auth/authSlice'
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
@@ -13,6 +17,23 @@ import Typography from '@mui/material/Typography';
 
 
 const Chat = () => {
+    
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const { user } = useSelector((state) => state.auth)
+    
+    useEffect(() => {
+    if (!user) {
+      navigate('/login')
+    }
+  }, [user, navigate,])
+    
+   const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/login')
+  }
     
     const array = [
         {
@@ -77,6 +98,7 @@ const Chat = () => {
                 </Button>
                 <Button
                   id="logout-Button"
+                  onClick={onLogout}
                  >
                   <FaSignOutAlt />  Logout
                 </Button>

@@ -1,7 +1,8 @@
 import React from 'react';
-import Header from "./components/Header"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
+import {ToastContainer} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
 import Home from "./pages/Home"
 import Chat from "./pages/Chat"
 import {
@@ -15,18 +16,13 @@ function App() {
     <div>
      <Router>
        <Routes>
-           <Route path='/register' element={<>
-                                            <Header />
-                                            <Register />
-                                            </>} />
-           <Route path='/login' element={<>
-                                            <Header />
-                                            <Login />
-                                            </>} />
+           <Route path='/register' element={<Register />} />
+           <Route path='/login' element={<Login />} />
            <Route path='/' element={<Home />} />
            <Route path='/chat' element={<Chat />} />
        </Routes>
      </Router>
+    <ToastContainer />
     </div>
   );
 }

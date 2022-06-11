@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 
-const Header = () => {
+const Header = () => {  
     return (
      <header className="main-header">
       <Container component="main" id="nav-container" maxWidth="md" >

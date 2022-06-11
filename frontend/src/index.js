@@ -4,13 +4,25 @@ import { Provider } from 'react-redux';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from './features/auth/authSlice';
+
+
+const store = configureStore({
+    reducer: {
+        auth: rootReducer
+    }
+});
+
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
       <App />
+    </Provider>
   </React.StrictMode>
 );
 

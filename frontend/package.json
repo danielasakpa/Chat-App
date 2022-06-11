@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "proxy": "https://chatappserver34.run-us-west2.goorm.io",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",
