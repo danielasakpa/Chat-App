@@ -1,34 +1,12 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { logout, reset } from '../features/auth/authSlice'
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-import { FaSignOutAlt } from "react-icons/fa";
 import Typography from '@mui/material/Typography';
+import Sidebar from "../components/Sidebar"
+
 
 
 const Home = () => {
-    
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-
-  const { user } = useSelector((state) => state.auth)
-    
-  useEffect(() => {
-    if (!user) {
-      navigate('/login')
-    }
-  }, [])
-    
-   const onLogout = () => {
-    dispatch(logout())
-    dispatch(reset())
-    navigate('/login')
-  }
     
     return (
        <div id="home-container">
@@ -36,35 +14,8 @@ const Home = () => {
            
         </header>
         
-        <aside className="home-sidebar">
-               <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}} >
-               <Avatar
-                  alt="Remy Sharp"
-                  src=""
-                  sx={{ mt: 4, mb: 2, width: 100, height: 100 }}
-                />
-                <Typography id="username" component="h2" variant="h5">
-                  Daniel
-                </Typography>
-                <Button
-                  id="home-nav-Button"
-                 >
-                   Profile
-                </Button>
-                <Button
-                  id="home-nav-Button"
-                 >
-                    View history
-                </Button>
-                <Button
-                  id="logout-Button"
-                  onClick={onLogout}
-                 >
-                  <FaSignOutAlt />  Logout
-                </Button>
-               </Box>
-        </aside>
-        
+        <Sidebar sidebar={"home-sidebar"} />
+            
         <main className="home-content">
                <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}} >
                   <Typography sx={{fontWeight: "bold", fontSize: "38px", color:  "#342E37"}} component="h2" variant="h5">

@@ -4,13 +4,14 @@ import User from "../model/userModel.js"
 import bcrypt from "bcryptjs"
 
 
+
 //@desc register user
 //@route POST /api/user
 // @access public
 const registerUser = asyncHandler(async (req, res) => {
-    const {name, email, password} = req.body
+    const {name, email, password, image} = req.body
     
-    if(!name || !email || !password) {
+    if(!name || !email || !password || !image) {
         res.status(400)
         throw new Error("please fill in  all fields")
     }
@@ -32,6 +33,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const user = await User.create({
         name,
         email,
+        image,
         password: hashedPassword
     })
     
@@ -40,6 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
         _id: user.id,
         name: user.name,
         email: user.email,
+        image: user.image,
         token: generateToken(user._id)
       })
     } else {
@@ -66,6 +69,7 @@ const loginUser = asyncHandler(async (req, res) => {
          _id: user.id,
          name: user.name,
          email: user.email,
+         image: user.image,
          token: generateToken(user._id)
         })
     } else {
@@ -80,7 +84,7 @@ const loginUser = asyncHandler(async (req, res) => {
 const updateUser = asyncHandler(async (req, res) => {
     const {email, password, name} = req.body
     
-    if(!email || !password, !name) {
+    if(!email || !password || !name) {
         res.status(400)
         throw new Error("please fill in  all fields")
     }

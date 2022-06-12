@@ -22,7 +22,7 @@ function App() {
            <Route path='/chat' element={<Chat />} />
        </Routes>
      </Router>
-    <ToastContainer />
+     <ToastContainer />
     </div>
   );
 }

@@ -10,6 +10,11 @@ const userSchema = mongoose.Schema({
         required: [true, "Please enter email"],
         unique: true
     },
+    image: {
+        type: String,
+        required: [true, "Please select a image"],
+        unique: true
+    },
     password: {
         type: String,
         required: [true, "Please enter password"]
