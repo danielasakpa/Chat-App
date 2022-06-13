@@ -5,12 +5,20 @@ const chatSchema = mongoose.Schema({
         type: String,
         required: true,
         ref: "User"
+    },name: {
+        type: String,
+        required: true,
+        ref: "User"
+    },image: {
+        type: String,
+        required: true,
+        ref: "User"
     },group: {
         type: String,
         required: true,
     },text: {
         type: String,
-        required: [true, 'please add a goal'],
+        required: [true, 'please add a message'],
     }  
 },
 {

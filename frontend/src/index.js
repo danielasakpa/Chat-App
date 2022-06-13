@@ -5,12 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from './features/auth/authSlice';
-
+import authReducer from './features/auth/authSlice';
+import chatReducer from './features/chat/chatSlice';
 
 const store = configureStore({
     reducer: {
-        auth: rootReducer
+        auth: authReducer,
+        chat: chatReducer
     }
 });
 

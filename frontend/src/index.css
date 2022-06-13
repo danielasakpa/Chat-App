@@ -81,6 +81,11 @@ body {
     border-bottom: 1px solid #e6e6e6;
 }
 
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+}
+
 
 .home-sidebar, .chat-sidebar {
     grid-area: sidebar;
@@ -117,7 +122,7 @@ body {
     padding:10px 15px;
 }
 
-#home-nav-Button, #logout-Button {
+#home-nav-Button, #logout-Button, #Leave-group-Button {
     color: #fff;
     font-size: 0.7em;
     font-weight: bold;
@@ -131,6 +136,10 @@ body {
     bottom: 7px;
 }
 
+.chat-link {
+   text-decoration: none;
+}
+
 .chat-content {
     display: flex;
     flex-direction: column;
@@ -142,18 +151,23 @@ body {
 
 .othermessage {
     padding: 1em;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-weight: 200;
     background-color: #E5E5E5;
+     font-family: 'Nunito', sans-serif;
     max-width: 250px;
     align-self: flex-start;
-    border-radius: 0 6px 6px 0;
+    border-radius: 2px;
 }
 
 .usermessage {
     padding: 1em;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-weight: 200;
+    color: #fff;
+     font-family: 'Nunito', sans-serif;
     background-color:rgb(33, 151, 139);
     max-width: 250px;
     align-self: flex-end;
-    border-radius: 6px 0 0 6px;
+    border-radius: 2px
 }

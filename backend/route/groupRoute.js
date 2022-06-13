@@ -5,6 +5,6 @@ import {protect} from "../middleware/authMiddleware.js"
 
 const router = express.Router()
 
-router.get("/", protect, getChat)
+router.get("/", getChat)
 
 export default router;
