@@ -171,3 +171,7 @@ body {
     align-self: flex-end;
     border-radius: 2px
 }
+
+.history-Content {
+   overflow-y: auto;
+}

@@ -4,15 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register, reset } from "../features/auth/authSlice";
 import Header from "../components/Header";
-import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
+import {
+  Button,
+  Avatar,
+  Typography,
+  Box,
+  Container,
+  TextField,
+  Backdrop,
+  CircularProgress
+} from "@mui/material";
 import HttpsOutlinedIcon from "@mui/icons-material/HttpsOutlined";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import TextField from "@mui/material/TextField";
-import Backdrop from "@mui/material/Backdrop";
-import CircularProgress from "@mui/material/CircularProgress";
 import UploadButtons from "../components/imageUploadBtn";
 import {
   ref,

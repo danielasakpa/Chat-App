@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import {Button, Typography, TextField, Box} from "@mui/material";
 import { getchat, reset } from "../features/chat/chatSlice";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";
 

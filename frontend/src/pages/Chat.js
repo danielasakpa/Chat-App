@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getchat, reset } from "../features/chat/chatSlice";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import AvatarGroup from "@mui/material/AvatarGroup";
-import TextField from "@mui/material/TextField";
-import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
-import GifBoxOutlinedIcon from "@mui/icons-material/GifBoxOutlined";
-import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
-import CircularProgress from "@mui/material/CircularProgress";
-import InsertEmoticonOutlinedIcon from "@mui/icons-material/InsertEmoticonOutlined";
-import Box from "@mui/material/Box";
+import {
+  Avatar,
+  Button,
+  AvatarGroup,
+  TextField,
+  CircularProgress,
+  Box
+} from "@mui/material";
 import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";
+import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 
 const Chat = ({ socket, roomJoined }) => {
   // Messages States
@@ -32,8 +31,6 @@ const Chat = ({ socket, roomJoined }) => {
     });
   }, [groupMessage, messageReceived]);
 
-  // console.log(messageReceived)
-
   const { user } = useSelector((state) => state.auth);
 
   const userId = user ? user._id : "no user";
@@ -41,8 +38,6 @@ const Chat = ({ socket, roomJoined }) => {
   const userName = user ? user.name : "no user";
 
   const userImage = user ? user.image : "no user";
-
-  // console.log(chat)
 
   const sendMessage = () => {
     socket.emit("send_message", {
@@ -60,12 +55,10 @@ const Chat = ({ socket, roomJoined }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // dispatch(getchat())
   };
 
-  const setUserImage = [];
- console.log(setUserImage)
   const imageArray = [];
+  let setUserImage = [];
 
   if (chat) {
     chat.map((usermessage) => {
@@ -75,35 +68,13 @@ const Chat = ({ socket, roomJoined }) => {
     });
   }
 
-  function printRepeating(imageArray, n) {
-    // Store elements and their counts in
-    // hash table
-    var mp = new Map();
-    for (var i = 0; i < n; i++) {
-      if (mp.has(imageArray[i]))
-        mp.set(imageArray[i], mp.get(imageArray[i]) + 1);
-      else mp.set(imageArray[i], 1);
-    }
+  const uniqueImg = imageArray.reduce(
+    (unique, image) =>
+      unique.indexOf(image) !== -1 ? unique : [...unique, image],
+    []
+  );
 
-    // Since we want elements in same order,
-    // we traverse array again and print
-    // those elements that appear more than
-    // once.
-    for (var v = 0; v < n; v++) {
-      if (mp.get(imageArray[v]) > 1) {
-        setUserImage.push(imageArray[v] + " ");
-
-        // This is tricky, this is done
-        // to make sure that the current
-        // element is not printed again
-        mp.set(imageArray[v], 0);
-      }
-    }
-  }
-
-  // Driver code
-  var n = imageArray.length;
-  printRepeating(imageArray, n);
+  setUserImage = uniqueImg;
 
   return (
     <div id="chat-container">
@@ -113,8 +84,8 @@ const Chat = ({ socket, roomJoined }) => {
         </Link>
         <AvatarGroup sx={{ m: 1 }} max={4}>
           {setUserImage.length >= 1
-            ? setUserImage.map((userImages, item) => {
-                return <Avatar key={item} alt={""} src={userImages} />;
+            ? setUserImage.map((userImages, index) => {
+                return <Avatar key={index} alt={""} src={userImages} />;
               })
             : "no user"}
         </AvatarGroup>
@@ -176,8 +147,6 @@ const Chat = ({ socket, roomJoined }) => {
             alignItems: "center"
           }}
         >
-          <GifBoxOutlinedIcon sx={{ m: 1 }} />
-          <AddPhotoAlternateOutlinedIcon sx={{ m: 1 }} />
           <TextField
             id="outlined-multiline-static"
             fullWidth
@@ -196,7 +165,6 @@ const Chat = ({ socket, roomJoined }) => {
           >
             <SendOutlinedIcon sx={{ m: 1 }} />
           </button>
-          <InsertEmoticonOutlinedIcon sx={{ m: 1 }} />
         </Box>
       </footer>
     </div>

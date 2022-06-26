@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/Home";
+import History from "./pages/History";
 import Chat from "./pages/Chat";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -23,6 +24,10 @@ function App() {
           <Route
             path="/"
             element={<Home socket={socket} setroomJoined={setroomJoined} />}
+          />
+          <Route
+            path="/history"
+            element={<History />}
           />
           <Route
             path="/chat"

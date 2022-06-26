@@ -1,8 +1,7 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
+import {Button, Grid, Stack} from "@mui/material";
+
 
 const Input = styled("input")({
   display: "none"

@@ -1,8 +1,5 @@
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
+import {Avatar, Button, Container, Typography } from "@mui/material";
 import { FaSignInAlt, FaSignOutAlt, FaUserAlt } from "react-icons/fa";
-import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -10,9 +7,7 @@ const Header = () => {
     <header className="main-header">
       <Container component="main" id="nav-container" maxWidth="md">
         <div className="nav-logo">
-          <Avatar sx={{ m: 2, bgcolor: "secondary.main" }}>
-            <PermIdentityOutlinedIcon />
-          </Avatar>
+          <Typography variant="h5">Chat App</Typography>
         </div>
         <div className="nav-links">
           <ul>

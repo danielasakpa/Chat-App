@@ -2,11 +2,10 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import {Avatar, Button, Box} from "@mui/material";
 import { FaSignOutAlt } from "react-icons/fa";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ sidebar }) => {
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ const Sidebar = ({ sidebar }) => {
     if (!user) {
       navigate("/login");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   const onLogout = () => {
     dispatch(logout());
@@ -39,7 +38,9 @@ const Sidebar = ({ sidebar }) => {
           {user ? user.name.split(" ")[0] : ""}
         </Typography>
         <Button id="home-nav-Button">Profile</Button>
-        <Button id="home-nav-Button">View history</Button>
+        <Link to="/history" className="chat-link">
+          <Button id="home-nav-Button">View history</Button>
+        </Link>
         <Button id="logout-Button" onClick={onLogout}>
           <FaSignOutAlt /> Logout
         </Button>
